@@ -1,19 +1,13 @@
+# urls.py in your app
+
 from django.contrib import admin
-from django.urls import path , include
-from myapp import  views 
+from django.urls import path, include
+from myapp import views  # Import the views module
+
+
 
 urlpatterns = [
-    path('',views.index,name='index') 
-    # path('admin/', admin.site.urls),
-
+    path('', include('myapp.urls')),
+    path('submit_contact_form/', views.submit_contact_form, name='submit_contact_form'),
+    # other app-specific URL patterns...
 ]
-
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('submit_contact/', views.submit_contact_form, name='submit_contact_form'),
-   
-]
-
-
