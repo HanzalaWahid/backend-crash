@@ -33,10 +33,12 @@
 
     <a href="#" class="logo"><i class="fas fa-paper-plane"></i> Help My Ebook </a>
 
-    <form action="" class="search-form">
-      <input type="search" name="" id="searchBox" placeholder="search here...">
-      <label for="searchBox" class="fas fa-search"></label>
+    <form method="get" action="{% url 'search_results' %}" class="search-form">
+      {% csrf_token %}
+      <input type="search" name="q" id="searchBox" placeholder="search here...">
+      <button type="submit"><i class="fas fa-search"></i></button>
     </form>
+    
 
     <div class="icons">
       <div class="fas fa-search" id="search-btn"></div>
@@ -51,29 +53,29 @@
       <a href="#pricing">pricing</a>
       <a href="#review">review</a>
       <a href="#contact">contact</a>
-      <a href="#blogs">blogs</a>
+      <a href="#blogs">Portfolio</a>
     </nav>
-
-    <form action="" class="login-form">
-
-      <div class="inputBox">
-        <span>username</span>
-        <input type="text" name="" id="" placeholder="enter your name">
-      </div>
-
-      <div class="inputBox">
-        <span>password</span>
-        <input type="password" name="" id="" placeholder="enter your password">
-      </div>
-
-      <div class="remember">
-        <input type="checkbox" name="" id="login-remember">
-        <label for="login-remember">remember me</label>
-      </div>
-
-      <input type="submit" value="login" class="btn">
-
-    </form>
+  {% comment %} Login Form  {% endcomment %}
+  <form method="post" action="{% url 'submit_login_form' %}" class="login-form">
+    {% csrf_token %}
+    
+    <div class="inputBox">
+      <span>username</span>
+      <input type="text" name="username" id="username" placeholder="enter your name">
+    </div>
+  
+    <div class="inputBox">
+      <span>password</span>
+      <input type="password" name="password" id="password" placeholder="enter your password">
+    </div>
+  
+    <div class="remember">
+      <input type="checkbox" name="remember" id="login-remember">
+      <label for="login-remember">remember me</label>
+    </div>
+  
+    <input type="submit" value="login" class="btn">
+  </form>
 
   </header>
   <!-- header section ends  -->
@@ -134,7 +136,7 @@
         <h3><i class=></i> Book Marketing </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Book your comprehensive Book Marketing package now and enhance your book's visibility and reach. Engage with readers, promote your work, and boost sales with targeted strategies tailored to your needs.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
@@ -146,7 +148,7 @@
         <h3><i class=></i> Amazon Publishing </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Secure your spot for our Amazon Publishing package now and get your book published and distributed worldwide with ease. Benefit from expert guidance, seamless processes, and global reach.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
@@ -158,13 +160,11 @@
         <h3><i class=></i> Book Editing </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Secure your spot for our Book Editing service now and elevate the quality of your manuscript. Receive professional feedback, constructive suggestions, and meticulous proofreading to ensure your book shines.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
     </div>
-
-    <!-- Repeat the pattern for other offerings -->
 
     <div class="box" data-aos="fade-up">
       <div class="image">
@@ -172,7 +172,7 @@
         <h3><i class=></i> Book Cover Design </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Book your captivating Book Cover Design service now and capture readers' attention. Collaborate with talented designers to create custom covers that reflect your story and attract readers.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
@@ -184,7 +184,7 @@
         <h3><i class=></i> Article Writing </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Book your professional Article Writing service now and expand your reach. Receive well-researched, engaging content tailored to your audience and objectives, crafted by experienced writers.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
@@ -196,7 +196,7 @@
         <h3><i class=></i> Biography Writing </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Secure your spot for our Biography Writing service now and capture life stories that inspire readers. Work closely with skilled writers to narrate captivating biographies with authenticity and depth.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
@@ -208,7 +208,7 @@
         <h3><i class=""></i> Author’s Website </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Book Your Author’s Website Creation Service Now And Showcase Your Works Online. Get A Professionally Designed Website Tailored To Your Style, Genre, And Personality To Establish Your Brand.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
@@ -220,7 +220,7 @@
         <h3><i class=""></i> Fiction Writing </h3>
       </div>
       <div class="content">
-        <div class="price">$290.0<span>(Was $350.99)</span></div>
+        {% comment %} <div class="price">$290.0<span>(Was $350.99)</span></div> {% endcomment %}
         <p>Secure your spot for our Fiction Writing package now and unleash your creativity. Receive expert guidance, constructive feedback, and professional editing services to bring your stories to life.</p>
         <a href="#" class="btn"> Book Now </a>
       </div>
@@ -444,26 +444,27 @@
       <h1 class="heading"><span>Contact</span> us</h1>
     </div>
     
+    <form method="post" action="{% url 'submit_contact_form' %}" data-aos="zoom">
+    {% csrf_token %}
 
-    <form action="" data-aos="zoom">
+    <div class="inputBox">
+      <input type="text" name="name" id="name" placeholder="Name" data-aos="fade-up">
+      <input type="email" name="email" id="email" placeholder="Email" data-aos="fade-up">
+  </div>
 
-      <div class="inputBox">
-        <input type="text" name="" id="" placeholder="name" data-aos="fade-up">
-        <input type="email" name="" id="" placeholder="email" data-aos="fade-up">
-      </div>
+  <div class="inputBox">
+      <input type="tel" name="number" id="number" placeholder="Number" data-aos="fade-up">
+      <input type="text" name="subject" id="subject" placeholder="Subject" data-aos="fade-up">
+  </div>
 
-      <div class="inputBox">
-        <input type="number" name="" id="" placeholder="number" data-aos="fade-up">
-        <input type="text" name="" id="" placeholder="subject" data-aos="fade-up">
-      </div>
+  <textarea name="message" id="message" placeholder="Your message" cols="30" rows="10" data-aos="fade-up"></textarea>
 
-      <textarea name="" placeholder="your message" id="" cols="30" rows="10" data-aos="fade-up"></textarea>
-
-      <input type="submit" value="send message" class="btn">
+  <input type="submit" value="Send Message" class="btn">
 
     </form>
 
   </section>
+  
   <!-- contact section ends  -->
 
   <!-- portfolio  section starts  -->
@@ -537,7 +538,7 @@
         <a href="#"> <i class="fas fa-chevron-right"></i> pricing </a>
         <a href="#"> <i class="fas fa-chevron-right"></i> review </a>
         <a href="#"> <i class="fas fa-chevron-right"></i> contact </a>
-        <a href="#"> <i class="fas fa-chevron-right"></i> blogs </a>
+        <a href="#"> <i class="fas fa-chevron-right"></i> Portfolio </a>
       </div>
 
       <div class="box" data-aos="fade-up">
@@ -545,7 +546,7 @@
           <a href="#"> <i class="fas fa-phone"></i> +1 646 583 1122 </a>
           <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
           <a href="#"> <i class="fas fa-envelope"></i> helpmyebook@gmail.com </a>
-          <a href="#"> <i class="fas fa-map-marker-alt"></i> Lorem ipsum, dolor </a>
+          <a href="#"> <i class="fas fa-map-marker-alt"></i> Main Street 7 , Newyork </a>
       </div>
 
       <div class="box" data-aos="fade-up">
@@ -564,12 +565,10 @@
   </section>
   <!-- footer section ends  -->
 
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
   <!-- custom js file link -->
-  {% comment %} <script src=" {%static 'js/script.js' %}"></script> {% endcomment %}
   <script src="{% static 'js/script.js' %}"></script>
 
   <script>

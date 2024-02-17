@@ -1,13 +1,11 @@
-# urls.py in your app
-
-from django.contrib import admin
-from django.urls import path, include
-from myapp import views  # Import the views module
-
-
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', include('myapp.urls')),
     path('submit_contact_form/', views.submit_contact_form, name='submit_contact_form'),
-    # other app-specific URL patterns...
+    path('login/', views.login, name='login'),
+    #path('logout/', auth_views.LogoutView.as_view(template_name="users/logged_out.html"), name='logout'),
 ]
+
+# Handles the login and logout process for users
+
